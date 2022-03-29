@@ -11,9 +11,11 @@ export function FormBox() {
   const [quantity, setQuantity] = useState(0);
 
   async function handleProductAdd() {
+    const id = Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString();
     firestore()
       .collection("products")
-      .add({
+      .doc(id)
+      .set({
         description,
         quantity,
         done: false,
