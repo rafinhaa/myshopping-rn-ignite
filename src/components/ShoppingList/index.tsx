@@ -26,22 +26,6 @@ export function ShoppingList() {
       });
   }, []);
 
-  useEffect(() => {
-    firestore()
-      .collection("products")
-      .doc("4409565375417750")
-      .get()
-      .then((response) =>
-        console.log({
-          id: response.id,
-          ...response.data(),
-        })
-      )
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   return (
     <FlatList
       data={products}
