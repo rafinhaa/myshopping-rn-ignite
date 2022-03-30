@@ -57,3 +57,7 @@ dist/
 # Firebase google
 android/app/google-services.json
 ios/GoogleService-Info.plist
+
+#Fire base logs
+firebase-debug.log
+firestore-debug.log
