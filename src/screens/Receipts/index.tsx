@@ -10,10 +10,24 @@ import { File, FileProps } from "../../components/File";
 export function Receipts() {
   const [photos, setPhotos] = useState<FileProps[]>([]);
   const [photoSelected, setPhotoSelected] = useState("");
+  const [photoInfo, setPhotoInfo] = useState("");
 
   const handleShowImage = async (path: string) => {
     const urlImage = await storage().ref(path).getDownloadURL();
+    const info = await storage().ref(path).getMetadata();
+
     setPhotoSelected(urlImage);
+
+    const date = new Date(info.timeCreated);
+    const hours = new Intl.DateTimeFormat("pt-BR", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    }).format(date);
+    setPhotoInfo(`${hours}`);
   };
 
   useEffect(() => {
@@ -35,7 +49,7 @@ export function Receipts() {
 
       <Photo uri={photoSelected} />
 
-      <PhotoInfo>Informações da foto</PhotoInfo>
+      <PhotoInfo>{photoInfo}</PhotoInfo>
 
       <FlatList
         data={photos}
