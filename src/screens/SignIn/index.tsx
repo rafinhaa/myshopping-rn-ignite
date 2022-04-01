@@ -40,9 +40,26 @@ export function SignIn() {
       });
   };
 
-  const handleSignInWithEmailAndPassword = async () => {
-    const { user } = await auth().signInWithEmailAndPassword(email, password);
-    console.log(user);
+  const handleSignInWithEmailAndPassword = () => {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {})
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/invalid-email":
+            alert("Usuário ou senha inválidos");
+            break;
+          case "auth/user-not-found":
+            alert("Usuário ou senha inválidos");
+            break;
+          case "auth/wrong-password":
+            alert("Usuário ou senha inválidos");
+            break;
+          default:
+            alert("Erro ao logar");
+            break;
+        }
+      });
   };
 
   return (
