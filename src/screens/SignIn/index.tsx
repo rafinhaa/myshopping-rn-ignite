@@ -62,6 +62,27 @@ export function SignIn() {
       });
   };
 
+  const handleForgotPassword = () => {
+    auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        alert("Email enviado com sucesso!");
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/invalid-email":
+            alert("Email inválido");
+            break;
+          case "auth/user-not-found":
+            alert("Email não encontrado");
+            break;
+          default:
+            alert("Erro ao enviar email");
+            break;
+        }
+      });
+  };
+
   return (
     <Container>
       <Title>MyShopping</Title>
@@ -78,7 +99,7 @@ export function SignIn() {
       <Button title="Entrar" onPress={handleSignInWithEmailAndPassword} />
 
       <Account>
-        <ButtonText title="Recuperar senha" onPress={() => {}} />
+        <ButtonText title="Recuperar senha" onPress={handleForgotPassword} />
         <ButtonText
           title="Criar minha conta"
           onPress={handleCreateUserAccount}
