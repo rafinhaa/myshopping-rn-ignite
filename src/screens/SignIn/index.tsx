@@ -23,7 +23,20 @@ export function SignIn() {
         alert("Usuário criado com sucesso!");
       })
       .catch((error) => {
-        alert(error.message);
+        switch (error.code) {
+          case "auth/invalid-email":
+            alert("Email inválido");
+            break;
+          case "auth/weak-password":
+            alert("Senha muito fraca");
+            break;
+          case "auth/email-already-in-use":
+            alert("Email já está em uso");
+            break;
+          default:
+            alert("Erro ao criar usuário");
+            break;
+        }
       });
   };
 
