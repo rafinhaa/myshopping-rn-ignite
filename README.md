@@ -18,7 +18,7 @@
 </h4>
 
 <h1 align="center">
-    <img width="200" style="border-radius: 10px" height="auto" alt="Screenshot" title="Screenshot" src="docs/videos/demo.gif" />
+    <img width="300" style="border-radius: 10px" height="auto" alt="Screenshot" title="Screenshot" src="docs/videos/demo.gif" />
   <div>
 </h1>
 
