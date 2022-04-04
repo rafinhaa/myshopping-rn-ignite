@@ -65,9 +65,8 @@ yarn run android
 ## ℹ️ Info
 
 É preciso ter uma conta no firebase e criar um projeto, criar o app para iOS e Android.
-Fazer o download do arquivo de configuração do app do Android e mover para `android/app/google-services.json`
-
-Fazer o download do arquivo de configuração do app do Android e mover para `ios/GoogleService-Info.plist`
+Baixar o arquivo de configuração do app do Android e mover para `android/app/google-services.json`;
+Baixar o arquivo de configuração do app do Android e mover para `ios/GoogleService-Info.plist`;
 
 ## 📝 License
 
